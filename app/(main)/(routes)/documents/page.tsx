@@ -6,8 +6,25 @@ import { useUser } from "@clerk/clerk-react"; // check to make sure this is work
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 
+import { api } from "@/convex/_generated/api";
+
+import { useMutation } from "convex/react";
+import { toast } from "sonner";
+
 const DocumentsPage = () => {
   const { user } = useUser();
+  const create = useMutation(api.documents.create);
+
+  const onCreate = () => {
+    const promise = create({ title: "Untitled" });
+
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Fail to create a new note.",
+    });
+  };
+
   return (
     <div className='flex flex-col justify-center items-center h-full space-y-4'>
       <Image
@@ -27,7 +44,7 @@ const DocumentsPage = () => {
       <h2 className='text-g font-medium'>
         Welcome to {user?.firstName}&apos;s Potion
       </h2>
-      <Button>
+      <Button onClick={onCreate}>
         <PlusCircle className='h-4 w-4 mr-2' />
         Create a Potion
       </Button>
