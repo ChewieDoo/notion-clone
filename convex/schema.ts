@@ -1,8 +1,8 @@
 import { defineSchema, defineTable } from "convex/server";
-import {v} from "convex/values";
+import {v} from "convex/values"; // import validators - helps validate structure of stored data
 
-export default defineSchema({
-    documents: defineTable({
+export default defineSchema({ // exports schema configuration so it can be used throughout the application
+    documents: defineTable({ // defines a table named "documents"
         title: v.string(),
         userID: v.string(),
         isArchived: v.boolean(),
@@ -12,6 +12,6 @@ export default defineSchema({
         icon: v.optional(v.string()),
         isPublished: v.boolean(),
     })
-    .index("by_user", ["userID"])
-    .index("by_user_parent",["userID", "parentDocument"])
+    .index("by_user", ["userID"]) // help make database lookup faster
+    .index("by_user_parent",["userID", "parentDocument"]) //create another index called "by_user-parent that helps find nested documents"
 })
