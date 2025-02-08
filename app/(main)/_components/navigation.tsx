@@ -10,6 +10,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
+
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts"; // used to define what is mobile/desktop window
@@ -21,6 +22,8 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
+import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
 import { Item } from "./item";
 import { toast } from "sonner";
@@ -28,6 +31,8 @@ import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
 
 export const Navigation = () => {
+  const settings = useSettings();
+  const search = useSearch();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width:768px)");
   const create = useMutation(api.documents.create);
@@ -143,8 +148,8 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item label='Search' icon={Search} isSearch onClick={() => {}} />
-          <Item label='Setting' icon={Settings} onClick={() => {}} />
+          <Item label='Search' icon={Search} isSearch onClick={search.onOpen} />
+          <Item label='Setting' icon={Settings} onClick={settings.onOpen} />
 
           <Item onClick={handleCreate} label='New Potion' icon={PlusCircle} />
         </div>

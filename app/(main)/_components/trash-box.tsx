@@ -21,7 +21,7 @@ export const TrashBox = () => {
   const [search, setSearch] = useState("");
 
   const filteredDocuments = documents?.filter((document) => {
-    return document.title.toLowerCase().includes(search.toLowerCase());
+    return document.title.toLowerCase().includes(search.toLowerCase()); // check to see if the search term exists inside documents.title
   });
 
   const onClick = (documentId: string) => {
@@ -37,7 +37,7 @@ export const TrashBox = () => {
 
     toast.promise(promise, {
       loading: "Restoring potion...",
-      success: "Potion retored!",
+      success: "Potion restored!",
       error: "Failed to restore potion.",
     });
   };

@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/providers/theme-providers";
 import { ConvexClientProvider } from "@/components/providers/convex-providers";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({
             storageKey='potion-theme'>
             {children}
             <Toaster position='bottom-center' />
+            <ModalProvider />
           </ThemeProvider>
         </ConvexClientProvider>
       </body>
