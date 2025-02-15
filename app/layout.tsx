@@ -9,6 +9,8 @@ import { ThemeProvider } from "@/components/providers/theme-providers";
 import { ConvexClientProvider } from "@/components/providers/convex-providers";
 import { ModalProvider } from "@/components/providers/modal-provider";
 
+import { EdgeStoreProvider } from "@/lib/edgestore";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -39,16 +41,18 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
         <ConvexClientProvider>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-            disableTransitionOnChange
-            storageKey='potion-theme'>
-            {children}
-            <Toaster position='bottom-center' />
-            <ModalProvider />
-          </ThemeProvider>
+          <EdgeStoreProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='system'
+              enableSystem
+              disableTransitionOnChange
+              storageKey='potion-theme'>
+              {children}
+              <Toaster position='bottom-center' />
+              <ModalProvider />
+            </ThemeProvider>
+          </EdgeStoreProvider>
         </ConvexClientProvider>
       </body>
     </html>
