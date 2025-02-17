@@ -11,7 +11,7 @@ import {
   Trash,
 } from "lucide-react";
 
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts"; // used to define what is mobile/desktop window
 import { UserItem } from "./user-item";
@@ -33,6 +33,7 @@ import { NavBar } from "@/app/(marketing)/_components/navbar";
 import { Navbar } from "./navbar";
 
 export const Navigation = () => {
+  const router = useRouter();
   const settings = useSettings();
   const search = useSearch();
   const pathname = usePathname();
@@ -122,7 +123,9 @@ export const Navigation = () => {
   };
 
   const handleCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
 
     toast.promise(promise, {
       loading: "Creating a new potion...",
