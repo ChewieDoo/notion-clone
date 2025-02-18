@@ -2,14 +2,14 @@
 
 import { useTheme } from "next-themes";
 
+import { useEdgeStore } from "@/lib/edgestore";
+
 import { BlockNoteEditor } from "@blocknote/core";
-import { useBlockNoteEditor, useCreateBlockNote } from "@blocknote/react";
+import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
 
 import "@blocknote/mantine/style.css";
 import "@blocknote/core/fonts/inter.css";
-
-import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -34,10 +34,18 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
     uploadFile: handleUpload,
   });
 
+  // handleEditorChange to call onChange to handle content changes
+  const handleEditorChange = () => {
+    const content = JSON.stringify(editor.document, null, 2);
+    onChange(content);
+  };
+
   return (
     <div>
       <BlockNoteView
+        editable={editable}
         editor={editor}
+        onChange={handleEditorChange}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
       />
     </div>
