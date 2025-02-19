@@ -22,3 +22,9 @@ API Endpoints are specific URL or functions that allow the front-end to interact
 
 Each function in `documents.ts` acts as an **API endpoint that the frontend can call**.
 
+### Journal
+
+Feb 19 2025 - had an issue with my push, got ```error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400 fatal: the remote end hung up unexpectedly```
+
+Fixed it with the command ```git config --global http.postBuffer 157286400``` by increasing the size of my commit.
+
