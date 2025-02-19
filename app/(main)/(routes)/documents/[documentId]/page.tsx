@@ -13,7 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 interface DocumentIdPageProps {
   params: {
-    documentId: Id<"documents">;
+    documentId: string;
   };
 }
 
@@ -22,15 +22,18 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     () => dynamic(() => import("@/components/editor"), { ssr: false }),
     []
   );
+
+  const documentId = params.documentId as Id<"documents">;
+
   const document = useQuery(api.documents.getById, {
-    documentId: params.documentId,
+    documentId,
   });
 
   const update = useMutation(api.documents.update);
 
   const onChange = (content: string) => {
     update({
-      id: params.documentId,
+      id: documentId,
       content,
     });
   };
