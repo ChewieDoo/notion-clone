@@ -29,7 +29,6 @@ import { Item } from "./item";
 import { toast } from "sonner";
 import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
-import { NavBar } from "@/app/(marketing)/_components/navbar";
 import { Navbar } from "./navbar";
 
 export const Navigation = () => {

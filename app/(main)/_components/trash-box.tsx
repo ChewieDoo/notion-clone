@@ -3,7 +3,7 @@
 import { useParams, useRouter } from "next/navigation";
 import { useQuery, useMutation } from "convex/react"; // allows front-end components to call backend components to modify data-base
 import { api } from "@/convex/_generated/api";
-import { isValidElement, useState } from "react";
+import { useState } from "react";
 import { Id } from "@/convex/_generated/dataModel";
 import { toast } from "sonner";
 import { Spinner } from "@/components/spinner";

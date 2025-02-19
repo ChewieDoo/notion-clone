@@ -3,7 +3,7 @@
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
 import { useState } from "react";
-import { Check, Copy, Divide, Globe } from "lucide-react";
+import { Check, Copy, Globe } from "lucide-react";
 
 import { Doc } from "@/convex/_generated/dataModel";
 import {
