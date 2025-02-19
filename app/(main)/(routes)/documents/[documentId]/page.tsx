@@ -1,10 +1,8 @@
 "use client";
 
 import { useMutation, useQuery } from "convex/react";
-
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { Toolbar } from "@/app/(main)/_components/toolbar";
@@ -23,6 +21,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     []
   );
 
+  // Convert documentId to the appropriate type
   const documentId = params.documentId as Id<"documents">;
 
   const document = useQuery(api.documents.getById, {
