@@ -5,6 +5,7 @@
 - Make website a bit prettier
 - Making it so you can access other Potions from one potion
 - Adding a home page showing recently visited document
+- Adding in stuff and seeing if this is showing up on github
 
 ## API Endpoints
 
