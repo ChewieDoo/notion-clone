@@ -1,5 +1,11 @@
 ### README
 
+## Other tasks
+- Add in custom images 
+- Make website a bit prettier
+- Making it so you can access other Potions from one potion
+- Adding a home page showing recently visited document
+
 ## API Endpoints
 
 API Endpoints are specific URL or functions that allow the front-end to interact with the backend.  They handle requests such as:
