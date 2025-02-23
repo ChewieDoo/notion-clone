@@ -30,6 +30,7 @@ import { toast } from "sonner";
 import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
 import { Navbar } from "./navbar";
+import { Tooltip } from "@/components/tooltip";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -138,7 +139,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-secondary overflow-y-auto relative flex w-60 flex-col z-[99999]",
+          "group/sidebar h-full bg-secondary relative flex w-60 flex-col z-[99999]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}>
@@ -153,8 +154,18 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item label='Search' icon={Search} isSearch onClick={search.onOpen} />
-          <Item label='Setting' icon={Settings} onClick={settings.onOpen} />
+          <Tooltip text='Search and quickly jump to a page'>
+            <Item
+              label='Search'
+              icon={Search}
+              isSearch
+              onClick={search.onOpen}
+            />
+          </Tooltip>
+
+          <Tooltip text='Change between light and dark mode'>
+            <Item label='Setting' icon={Settings} onClick={settings.onOpen} />
+          </Tooltip>
 
           <Item onClick={handleCreate} label='New Potion' icon={PlusCircle} />
         </div>

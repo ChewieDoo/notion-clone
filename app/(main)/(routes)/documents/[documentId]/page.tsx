@@ -10,6 +10,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { Toolbar } from "@/app/(main)/_components/toolbar";
 import { Cover } from "@/components/cover";
 import { Skeleton } from "@/components/ui/skeleton";
+import Editor from "@/components/editor";
 
 interface DocumentIdPageProps {
   params: Promise<{
@@ -20,11 +21,6 @@ interface DocumentIdPageProps {
 const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
   const unwrappedParams = use(params);
 
-  const Editor = useMemo(
-    () => dynamic(() => import("@/components/editor"), { ssr: false }),
-    []
-  );
-
   // Convert documentId to the appropriate type
   const documentId = unwrappedParams.documentId as Id<"documents">;
 
@@ -32,6 +28,7 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
     documentId,
   });
 
+  // Update the backend to reflect changes made in the editor
   const update = useMutation(api.documents.update);
 
   const onChange = (content: string) => {

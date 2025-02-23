@@ -1,8 +1,12 @@
 ### README - this is the UPDATE branch
 
 ## Other tasks
-- Add in custom images 
+- Make it table to sign in using Google accounts (DONE)
 - Make website a bit prettier
+    1. Sidebar - make the dropdown arrow appear when user hovers over it
+    2. Make the margins a bit wider
+    3. Add in Home Page section
+    4. Add in dividers
 - Making it so you can access other Potions from one potion
 - Adding a home page showing recently visited document
 - Adding in stuff and seeing if this is showing up on github
@@ -13,7 +17,7 @@ API Endpoints are specific URL or functions that allow the front-end to interact
 - Creating data `POST`
 - Reading data `GET`
 - Updating data `PATCH/PUT`
-- Deleting data `DELETE`
+- Deleting data `DELEdTE`
 
 ### documents.ts
 `documents.ts` defines API endpoints by setting up mutations and queries:
