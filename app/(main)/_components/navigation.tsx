@@ -24,13 +24,13 @@ import {
 } from "@/components/ui/popover";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
+import { Separator } from "@/components/ui/separator";
 
 import { Item } from "./item";
 import { toast } from "sonner";
 import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
 import { Navbar } from "./navbar";
-import { Tooltip } from "@/components/tooltip";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -139,7 +139,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-secondary relative flex w-60 flex-col z-[99999]",
+          "group/sidebar h-full bg-secondary overflow-visible overflow-y-auto relative flex w-60 flex-col z-[99999]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}>
@@ -147,30 +147,30 @@ export const Navigation = () => {
           role='button'
           onClick={collapse}
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            " h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}>
           <ChevronsLeft />
         </div>
         <div>
           <UserItem />
-          <Tooltip text='Search and quickly jump to a page'>
-            <Item
-              label='Search'
-              icon={Search}
-              isSearch
-              onClick={search.onOpen}
-            />
-          </Tooltip>
-
-          <Tooltip text='Change between light and dark mode'>
-            <Item label='Setting' icon={Settings} onClick={settings.onOpen} />
-          </Tooltip>
-
-          <Item onClick={handleCreate} label='New Potion' icon={PlusCircle} />
+          <Item label='Search' icon={Search} isSearch onClick={search.onOpen} />
+          <Item
+            label='Setting'
+            icon={Settings}
+            isSetting
+            onClick={settings.onOpen}
+          />
+          <Item
+            onClick={handleCreate}
+            label='New Potion'
+            isCreate
+            icon={PlusCircle}
+          />
         </div>
+        <Separator className='my-2 dark:bg-neutral-700' />
         <div className='mt-4'>
-          <DocumentList />
+          <DocumentList isCollapsed={isCollapsed} />
           <Item onClick={handleCreate} icon={Plus} label='Add a Potion' />
           <Popover>
             <PopoverTrigger className='w-full mt-4'>

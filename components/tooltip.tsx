@@ -1,27 +1,24 @@
 "use client";
 
 import { ReactNode } from "react";
-
 import { cn } from "@/lib/utils";
 
 interface TooltipProps {
-  text: string;
-  children: ReactNode;
+  content?: ReactNode;
 }
 
-export const Tooltip = ({ text, children }: TooltipProps) => {
+export const Tooltip = ({ content }: TooltipProps) => {
   return (
     <div className='relative group'>
-      {children}
       <div
         className={cn(
-          "transform -translate-y-1/2 group-hover:opacity-100 transition-opacity duration-300 z-50",
-          "bg-neutral-600 text-white text-xs rounded opacity-0",
-          "absolute left-full top-1/2 ml-2 px-2 py-1",
-          "maw-w-xs",
-          "whitespace-normal"
-        )}>
-        {text}
+          "absolute left-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1",
+          "bg-neutral-600 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+          "max-w-xs whitespace-normal break-words z-[99999999999999999]" // Increased z-index
+        )}
+        style={{ width: "max-content" }} // Adjust left property to position outside sidebar
+      >
+        {content}
       </div>
     </div>
   );
