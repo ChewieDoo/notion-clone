@@ -13,13 +13,11 @@ interface DocumentListProps {
   parentDocumentId?: Id<"documents">;
   level?: number;
   data?: Doc<"documents">[];
-  isCollapsed?: boolean; // Add isCollapsed prop to track sidebar state
 }
 
 export const DocumentList = ({
   parentDocumentId,
   level = 0,
-  isCollapsed,
 }: DocumentListProps) => {
   const params = useParams();
   const router = useRouter();

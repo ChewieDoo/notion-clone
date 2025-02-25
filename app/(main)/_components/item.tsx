@@ -134,7 +134,6 @@ export const Item = ({
       role='button'
       style={{
         paddingLeft: level ? `${level * 12 + 12}px` : "12px",
-        overflow: "visible",
         marginBottom: "2px",
       }}
       className={cn(

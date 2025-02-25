@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { useUser } from "@clerk/clerk-react"; // check to make sure this is working
+import { useUser } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 

@@ -9,6 +9,7 @@ import {
   Search,
   Settings,
   Trash,
+  Home,
 } from "lucide-react";
 
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -139,7 +140,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-secondary overflow-visible overflow-y-auto relative flex w-60 flex-col z-[99999]",
+          "group/sidebar h-full bg-secondary overflow-x-hidden overflow-y-auto relative flex w-60 flex-col z-[99999]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}>
@@ -154,23 +155,42 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item label='Search' icon={Search} isSearch onClick={search.onOpen} />
-          <Item
-            label='Setting'
-            icon={Settings}
-            isSetting
-            onClick={settings.onOpen}
-          />
-          <Item
-            onClick={handleCreate}
-            label='New Potion'
-            isCreate
-            icon={PlusCircle}
-          />
+
+          <div className='z-[9999999]'>
+            <Item
+              label='Search'
+              icon={Search}
+              isSearch
+              onClick={search.onOpen}
+            />
+          </div>
+          <div className='z-[9999999]'>
+            <Item
+              label='Home'
+              icon={Home}
+              onClick={() => router.push("/home")}
+            />
+          </div>
+          <div className='z-[9999999]'>
+            <Item
+              label='Setting'
+              icon={Settings}
+              isSetting
+              onClick={settings.onOpen}
+            />
+          </div>
+          <div className='z-[9999999] overflow-visible'>
+            <Item
+              onClick={handleCreate}
+              label='New Potion'
+              isCreate
+              icon={PlusCircle}
+            />
+          </div>
         </div>
         <Separator className='my-2 dark:bg-neutral-700' />
         <div className='mt-4'>
-          <DocumentList isCollapsed={isCollapsed} />
+          <DocumentList />
           <Item onClick={handleCreate} icon={Plus} label='Add a Potion' />
           <Popover>
             <PopoverTrigger className='w-full mt-4'>
