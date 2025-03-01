@@ -1,9 +1,8 @@
 "use client";
 
 import { useMutation, useQuery } from "convex/react";
-import dynamic from "next/dynamic";
 
-import { use, useMemo } from "react";
+import { use } from "react";
 
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
