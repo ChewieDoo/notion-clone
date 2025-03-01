@@ -3,9 +3,9 @@
 ## Home Page
 1. Create route (/home -> first page we log in) (DONE)
 2. Create a new page component representing home page (DONE)
-3. Create a recent document box (holding document image, icon, title, last edited)
+3. Create a recent document box (holding document image, icon, title, last edited) (Done)
 4. Functionality 1: Clicking in allows you to quickly access the document
-5. Functionality 2: Creating and accessing the document puts it at the top of the list of document displayed
+5. Functionality 2: Creating and accessing the document puts it at the top of the list of document displayed (DONE)
 
 ## Other tasks
 - Make it table to sign in using Google accounts (DONE)
