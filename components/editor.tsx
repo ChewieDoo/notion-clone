@@ -12,9 +12,10 @@ import { useCreateBlockNote } from "@blocknote/react";
 interface EditorProps {
   onChange: (value: string) => void;
   initialContent?: string;
+  editable?: boolean;
 }
 
-const Editor = ({ onChange, initialContent }: EditorProps) => {
+const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
 
@@ -37,6 +38,7 @@ const Editor = ({ onChange, initialContent }: EditorProps) => {
     <div>
       <BlockNoteView
         editor={editor}
+        editable={editable}
         onChange={handleEditorChange}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
       />
