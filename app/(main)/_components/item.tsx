@@ -27,7 +27,6 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Tooltip } from "@/components/tooltip";
 
 interface ItemProps {
   id?: Id<"documents">;
