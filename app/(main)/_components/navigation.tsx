@@ -157,12 +157,7 @@ export const Navigation = () => {
           <UserItem />
 
           <div className='z-[9999999]'>
-            <Item
-              label='Search'
-              icon={Search}
-              isSearch
-              onClick={search.onOpen}
-            />
+            <Item label='Search' icon={Search} onClick={search.onOpen} />
           </div>
           <div className='z-[9999999]'>
             <Item
@@ -172,20 +167,10 @@ export const Navigation = () => {
             />
           </div>
           <div className='z-[9999999]'>
-            <Item
-              label='Setting'
-              icon={Settings}
-              isSetting
-              onClick={settings.onOpen}
-            />
+            <Item label='Setting' icon={Settings} onClick={settings.onOpen} />
           </div>
           <div className='z-[9999999] overflow-visible'>
-            <Item
-              onClick={handleCreate}
-              label='New Potion'
-              isCreate
-              icon={PlusCircle}
-            />
+            <Item onClick={handleCreate} label='New Potion' icon={PlusCircle} />
           </div>
         </div>
         <Separator className='my-2 dark:bg-neutral-700' />
