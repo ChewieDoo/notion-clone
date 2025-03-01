@@ -24,9 +24,6 @@ import {
   MoreHorizontal,
   Plus,
   Trash,
-  Search,
-  Settings,
-  PlusCircle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -156,37 +153,6 @@ export const Item = ({
       )}
 
       <span className='truncate'>{label}</span>
-
-      {isSearch && (
-        <Tooltip
-          content={
-            <p className='z-[100000]'>
-              Search and quickly jump to a potion{" "}
-              <kbd
-                className='ml-auto pointer-events-none inline-flex h-5 
-                          select-none items-center gap-1 rounded border bg-muted
-                          px-1.5 font-mono text-[10px] font-medium text-muted-foreground
-                          opacity-100'>
-                <span className='text-xs'>⌘</span>K
-              </kbd>
-            </p>
-          }
-        />
-      )}
-
-      {isSetting && (
-        <Tooltip
-          content={
-            <p className='z-[100000]'>Change between light and dark mode</p>
-          }
-        />
-      )}
-
-      {isCreate && (
-        <Tooltip
-          content={<p className='z-[100000]'>Brew new potion from scratch</p>}
-        />
-      )}
 
       {!!id && (
         <div className='ml-auto flex items-center gap-x-2'>

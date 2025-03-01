@@ -168,7 +168,7 @@ export const Navigation = () => {
             <Item
               label='Home'
               icon={Home}
-              onClick={() => router.push("/home")}
+              onClick={() => router.push("/documents")}
             />
           </div>
           <div className='z-[9999999]'>
